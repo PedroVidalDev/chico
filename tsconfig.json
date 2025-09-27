@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES2020",                             /* Specify ECMAScript target version. */
+    "module": "NodeNext",                           /* Specify module code generation: 'NodeNext' for ES Modules in Node.js, 'ES2020' for browser. */
+    "moduleResolution": "NodeNext",                 /* Resolve modules using Node.js Next resolution (necessary for 'NodeNext' module). */
+
+    /* Type Checking */
+    "strict": true,                                 /* Enable all strict type-checking options. */
+    "esModuleInterop": true,                        /* Allow default imports from modules with no default export. */
+    "skipLibCheck": true,                           /* Skip type checking of declaration files. */
+    "forceConsistentCasingInFileNames": true,       /* Ensure that casing is consistent throughout a given file path. */
+    "noImplicitAny": true,                          /* Raise error on expressions and declarations with an implied 'any' type. */
+
+    /* Output and Source Maps */
+    "outDir": "./dist",                             /* Specify an output directory for the compiled JavaScript. */
+    "rootDir": "./src",                             /* Specify the root directory of the source files. */
+    "sourceMap": true,                              /* Create source map files for debugging. */
+
+    /* Other */
+    "allowJs": true,                                /* Allow JavaScript files to be compiled. */
+    "resolveJsonModule": true                       /* Allows importing modules with a '.json' extension. */
+  },
+  "include": ["src/**/*"]                           /* Specify the files/patterns to include for compilation. */
+}
