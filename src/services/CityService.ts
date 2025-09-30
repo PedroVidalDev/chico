@@ -13,14 +13,14 @@ export class CityService {
     public async getCitiesByQuery(query: Record<string, any>): Promise<City[]> {
         const cities: City[] | null = await this.repository.getCitiesByQuery(query);
 
-        if (!cities) throw new NotFoundException("Cidades não encontradas")
+        if (!cities || cities.length === 0) throw new NotFoundException("Cidades não encontradas")
 
         return cities;
     }
 
     public async getCities(): Promise<City[]> {
         const cities: City[] | null = await this.repository.getCities();
-        if (!cities) throw new NotFoundException("Cidades não encontradas")
+        if (!cities || cities.length === 0) throw new NotFoundException("Cidades não encontradas")
 
         return cities;
     }
