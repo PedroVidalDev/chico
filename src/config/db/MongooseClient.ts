@@ -1,4 +1,7 @@
+import { configDotenv } from 'dotenv';
 import * as mongoose from 'mongoose';
+
+configDotenv();
 
 export class MongooseClient {
     private static instance: typeof mongoose | null = null; 
@@ -23,9 +26,9 @@ export class MongooseClient {
         }
     }
 
-    public static getClient(): typeof mongoose {
+    public static getClient(): typeof mongoose | null {
         if (!MongooseClient.instance) {
-            throw new Error("Mongoose client not connected. Call MongooseClient.connect(uri) first.");
+            this.connect(process.env.DATABASE_URL);
         }
         return MongooseClient.instance;
     }

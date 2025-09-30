@@ -17,4 +17,4 @@ const citySchema = new Schema<ICity>({
   
 });
 
-export const CityModel = model<ICity>('City', citySchema);
+export const CityModel = model<ICity>('City', citySchema, 'City');
