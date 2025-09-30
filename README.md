@@ -30,7 +30,7 @@ export interface ICity {
 
 ## Testes
 
-Para testar a aplicação será necessária utilizar de seus endpoints.
+Para testar a aplicação será necessário utilizar de seus endpoints.
 - ```/cities``` endpoint para pegar todas as cidades cadastradas em seu DB.
 - ```/cities?name=example``` endpoint usado para realizar filtros de cidade por seu nome, vale mencionar que o exemplo com name pode ser trocado para qualquer chave da entidade City.
 
