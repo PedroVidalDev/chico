@@ -7,9 +7,15 @@ export class CityRepository {
         MongooseClient.getClient();
     }
 
-    public async getCityByName(name: string): Promise<City | null> {
-        const cityData = await CityModel.findOne({ name }).exec();
+    public async getCitiesByQuery(query: Record<string, any>): Promise<City[] | null> {
+        const cityData = await CityModel.find(query).exec();
 
-        return cityData ? City.toDomain(cityData) : null;
+        return cityData ? cityData.map(city => City.toDomain(city)) : null;
+    }
+
+    public async getCities(): Promise<City[] | null> {
+        const cityData = await CityModel.find().exec();
+
+        return cityData ? cityData.map(city => City.toDomain(city)) : null;
     }
 }

@@ -11,15 +11,16 @@ export class CityController {
         this.service = new CityService()
     }
 
-    public async getCityByName(req: Request, res: Response) {
-        const { name } = req.query;
-
-        if (!name || typeof name !== 'string') return res.status(402).json({"error": "Nome de cidade inválida"})
-
+    public async getCities(req: Request, res: Response) {
         try  {
-            const city = await this.service.getCityByName(name)
+            let response;
+            if (!req.query) {
+                response = await this.service.getCities()
+            } else {
+                response = await this.service.getCitiesByQuery(req.query)
+            }
 
-            return res.status(200).json(city)
+            return res.status(200).json(response)
         } catch (error) {
             if (error instanceof NotFoundException) {
                 return res.status(404).json({"error": error.message || "Cidade não encontrada"})
